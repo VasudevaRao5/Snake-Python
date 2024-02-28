@@ -1,48 +1,34 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Number Guessing Game</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-  }
-  .container {
-    text-align: center;
-    margin-top: 100px;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart Product Listing</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Include your CSS file -->
 </head>
 <body>
-<div class="container">
-  <h1>Number Guessing Game</h1>
-  <p>Guess a number between 1 and 100:</p>
-  <input type="text" id="guessInput">
-  <button onclick="checkGuess()">Submit Guess</button>
-  <p id="message"></p>
-</div>
+    <header>
+        <!-- Header content -->
+        <h1>Flipkart</h1>
+        <!-- Other header elements like search bar, user profile, etc. -->
+    </header>
 
-<script>
-  // Generate random number between 1 and 100
-  const randomNumber = Math.floor(Math.random() * 100) + 1;
+    <main>
+        <section class="products">
+            <div class="product">
+                <img src="product1.jpg" alt="Product 1">
+                <h2>Product 1</h2>
+                <p>Description of Product 1</p>
+                <span class="price">$10.99</span>
+                <button>Add to Cart</button>
+            </div>
+            <!-- More product listings -->
+        </section>
+    </main>
 
-  function checkGuess() {
-    const guess = parseInt(document.getElementById('guessInput').value);
-    const message = document.getElementById('message');
-
-    if (isNaN(guess) || guess < 1 || guess > 100) {
-      message.textContent = "Please enter a valid number between 1 and 100.";
-    } else if (guess === randomNumber) {
-      message.textContent = `Congratulations! ${randomNumber} is the correct number!`;
-    } else if (guess < randomNumber) {
-      message.textContent = "Too low! Try again.";
-    } else {
-      message.textContent = "Too high! Try again.";
-    }
-  }
-</script>
+    <footer>
+        <!-- Footer content -->
+        <p>&copy; 2024 Flipkart. All rights reserved.</p>
+    </footer>
 </body>
 </html>
-
