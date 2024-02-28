@@ -2,14 +2,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Snake Game</title>
-    <style>
-        /* CSS styles for the game */
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number Guessing Game</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    text-align: center;
+    margin-top: 100px;
+  }
+</style>
 </head>
 <body>
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <script src="{{ url_for('static', filename='game.js') }}"></script>
+<div class="container">
+  <h1>Number Guessing Game</h1>
+  <p>Guess a number between 1 and 100:</p>
+  <input type="text" id="guessInput">
+  <button onclick="checkGuess()">Submit Guess</button>
+  <p id="message"></p>
+</div>
+
+<script>
+  // Generate random number between 1 and 100
+  const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+  function checkGuess() {
+    const guess = parseInt(document.getElementById('guessInput').value);
+    const message = document.getElementById('message');
+
+    if (isNaN(guess) || guess < 1 || guess > 100) {
+      message.textContent = "Please enter a valid number between 1 and 100.";
+    } else if (guess === randomNumber) {
+      message.textContent = `Congratulations! ${randomNumber} is the correct number!`;
+    } else if (guess < randomNumber) {
+      message.textContent = "Too low! Try again.";
+    } else {
+      message.textContent = "Too high! Try again.";
+    }
+  }
+</script>
 </body>
 </html>
+
